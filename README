@@ -1,0 +1,50 @@
+To create the VMs:
+ - vagrant up
+
+Note, if this does not work due to virtualbox kernel modules, install dkms and load the kernel module:
+ - yum/dnf/apt-get install dkms
+ - /usr/lib/vitualbox/vboxdrv.sh setup
+ - try again the creation command: vagrant up
+
+This creates a controller and a worker VM. To log in into them:
+ - vagrant ssh controller
+ - vagrant ssh worker
+
+To start playing with openstack:
+ - vagrant ssh worker
+ - restart n-cpu
+     - screen -r
+     - ctrl + a + "
+     - choose: n-cpu
+     - ctrl+c, up and enter
+     - ctrl+a+d to exit screen
+ - restart q-agt
+    - repeat previous steps but choosing q-agt tab
+ - exit
+
+ - vagrant ssh controller
+ - restart n-cpu:
+     - screen -r
+     - ctrl + a + "
+     - choose: n-cpu
+     - ctrl+c, up and enter
+     - ctrl+a+d to exit screen
+ - restart c-vol
+    - repeat previous steps but choosing c-vol tab
+ - cd devstack
+ - . openrc admin admin
+ - and play
+
+To suspend the VMs:
+ - vagrant suspend [controller|worker]
+
+Restart them:
+  - vagrant up [controller|worker]
+  - vagrant ssh [controller|worker]
+  - cd devstack
+  - . openrc admin admin
+  - and play
+
+To remove the VMs:
+ - vagrant destroy [controller|worker]
+
