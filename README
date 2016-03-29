@@ -11,26 +11,7 @@ This creates a controller and a worker VM. To log in into them:
  - vagrant ssh worker
 
 To start playing with openstack:
- - vagrant ssh worker
- - restart n-cpu
-     - screen -r
-     - ctrl + a + "
-     - choose: n-cpu
-     - ctrl+c, up and enter
-     - ctrl+a+d to exit screen
- - restart q-agt
-    - repeat previous steps but choosing q-agt tab
- - exit
-
  - vagrant ssh controller
- - restart n-cpu:
-     - screen -r
-     - ctrl + a + "
-     - choose: n-cpu
-     - ctrl+c, up and enter
-     - ctrl+a+d to exit screen
- - restart c-vol
-    - repeat previous steps but choosing c-vol tab
  - cd devstack
  - . openrc admin admin
  - and play

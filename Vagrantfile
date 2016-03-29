@@ -103,6 +103,7 @@ Vagrant.configure(2) do |config|
     controller.vm.provision "shell", path: "./config_files/updateCinderConf.sh"
     controller.vm.provision "shell", path: "./config_files/cleanup_networks.sh"
     controller.vm.provision "shell", path: "./config_files/create_networks.sh"
+    controller.vm.provision "shell", path: "./config_files/restart_controller_services.sh"
   end
 
   config.vm.define "worker" do |worker|
@@ -148,5 +149,6 @@ Vagrant.configure(2) do |config|
       ifconfig br-eth1 192.168.5.3/24 up
     SHELL
     worker.vm.provision "shell", path: "./config_files/updateNovaConf.sh"
+    worker.vm.provision "shell", path: "./config_files/restart_worker_services.sh"
   end
 end
